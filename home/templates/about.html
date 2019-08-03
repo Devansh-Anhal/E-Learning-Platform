@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{% block head %}
+<title>About</title>
+{% endblock %}
+
+{% block content %}
+<!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">We provide Great Content For Spirited Learners</h1>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="#">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                About
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+<!--/ About Star /-->
+  <section class="section-about">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="about-img-box">
+            <img src="{% static 'img/one.jpg' %}" alt="" class="img-fluid">
+          </div>
+          <div class="sinse-box">
+            <h3 class="sinse-title">StudyNirvana
+              <span></span>
+              <br>  </h3>
+            <p>where Students don't suffer</p>
+          </div>
+        </div>
+        <div class="col-md-12 section-t8">
+          <div class="row">
+            <div class="col-md-6 col-lg-5">
+              <img src="{% static 'img/two.jpg' %} " alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-2  d-none d-lg-block">
+              <div class="title-vertical d-flex justify-content-start">
+                <span></span>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-5 section-md-t3">
+              <div class="title-box-d">
+                <h3 class="title-d">Who
+                  <span class="color-d">Are We</span> ?
+                  <br> </h3>
+              </div>
+              <p class="color-text-a">
+                We are students of NIIT University(2016-2020) .
+                Started this project to provide free education for people around the globe.
+                Here people dont suffer wasting their time to search for the course.
+                We provide the best course on the internet and that too for FREE!.
+              </p>
+              <p class="color-text-a">
+                StudyNirvana is developed under the supervision of NIIT ltd. trainers.
+                Mr. Manish Hurkat and Mr. Bhavesh Sangwan and also with the help of Mr.Ravindra Diwan we are able to successfully provide you our service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ About End /-->
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+</style>
+
+<h8>OUR Instructors</h8><br><br>
+{% for ins in ins %}
+ <div class="col-md-4 center">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="../media/{{ins.image}}" alt="" class="img-a img-fluid ">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="#">{{ins.name}}</a>
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  
+                  <a href="{{ins.url}}" class="link-a">Know more
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </div>
+             <div class="card-footer-a">
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+   </br>
+{% endfor %}
+ 
+<br>
+
+{% endblock %}

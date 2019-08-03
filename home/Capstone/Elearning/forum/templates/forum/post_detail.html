@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+
+{% block head %}
+<title>Discussion Forum-{{object.title}}</title>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <br><br>
+    <div class="head_det">
+      <header><h2>{{object.title}}</h2></header>
+  <!--    <small class="text-muted" id="subhead">and you will find your answers</small>-->
+  </div>
+  <br><br>
+        <article class="media content-section">
+        	 <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ object.author }}</a>
+              <small class="text-muted">{{ object.date_posted}}</small>
+              {% if object.author == user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                </div>
+              {% endif %}
+            </div>
+         <!--   <h2 class="article-title">{{ object.title }}</h2>-->
+            <p class="article-content text-justify">{{ object.content }}</p>
+            <a href="{% url 'add_comment_to_post' pk=post.pk %}">
+            <i class='fas fa-reply' data-toggle="tooltip" title="Reply!"></i>
+          </a>
+          </div>
+        </article>
+        
+      {% for comment in object.comments.all %}
+      <div class="comment_container">
+       <article class="media content-section" id="comment">
+          
+        <div class="media-body">
+          <div class="article-metadata">
+            <h7 class="mr-2" href="#">Posted by ~ {{ comment.author }} </h7>
+            <small class="text-muted" id="date"> {{ comment.date_posted }} </small>>
+          </div>
+            <p class="article-content">{{ comment.content|linebreaks }}</p>
+          </div>
+      </article>
+      </div>
+
+    
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
+</div>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+{% endblock %}

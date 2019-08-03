@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block head %}
+<title>Discussion Forum</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <br><br>
+  <div class="head">
+  <header><h2>Ask your Questions!</h2></header>
+  <small class="text-muted" id="subhead">and you will find your answers</small>
+  </div>
+  <br><br>
+<a class="nav-item nav-link" id="post" href="{% url 'post-create' %}">New Post<sup>+</sup></a>
+<br>
+
+{% for post in posts %}
+        <article class="media content-section">
+        	 <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <h7 class="mr-2" href="#">Posted by ~ {{ post.author }}</h7>
+              <small class="text-muted" id="date">{{ post.date_posted}}</small>
+            </div>
+            <h3><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
+            <h7 id="comments">Comments: {{ post.comments.count }}</h7>
+
+      <!--    <p class="article-content">{{ post.content }}</p>-->
+          </div>
+        </article>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+
+{% block head %}
+<title>Delete Your Topic?</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<div class="container post-container">
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <br>
+            <br>
+            
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete Post</legend>
+                <h3 class="text-justify">Are you sure you want to delete the post "{{ object.title }}" ?</h3>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}">Cancel</a>
+            </div>
+        </div>
+        </form>
+    </div>
+{% endblock content %}

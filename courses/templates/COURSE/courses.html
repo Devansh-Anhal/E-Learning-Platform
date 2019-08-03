@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block head %}
+<title>Choose Your Course</title>
+{% endblock %}
+
+{% block content %}
+
+
+<h8>COURSES</h8><br><br>
+{% for course in courses %}
+
+  <div class="col-md-3">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a ">
+              <img src="../media/{{course.logo}}" alt="" class="img-a img-fluid ">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="#">{{course.title}}</a>
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  
+                  <a href="/course?id={{course.pk}}" class="link-a">Click here to view
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </div>
+             <div class="card-footer-a">
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endfor %}
+
+<br>
+
+{% endblock %}
+

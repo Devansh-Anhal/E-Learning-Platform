@@ -1,0 +1,92 @@
+ #post{
+    margin-left: 62rem;
+    border: 1px solid #2eca6a;
+    border-radius: 5px;
+    font-weight: 600;
+
+  }
+  sup{
+    font-size:1rem;
+  }
+  .head{
+    margin-left: 25rem;
+    margin-top: 2rem;
+  }
+  #subhead{
+    margin-left: 2.5rem;
+    font-size:1rem;
+  }
+  #comments{
+    float:right;
+  }
+  #date{
+    float:right;
+  }
+.head_det{
+    margin-left: 30rem;
+    margin-top: 2rem;
+  }
+
+   i{
+    float:right;
+
+  }
+.comment_container{
+  margin-left:10rem;
+}
+.post-container{
+  max-width: 100%;
+  max-height: 100%;
+  width:700px;
+  height:700px;
+
+}
+
+.forum-btn{
+  margin-left:34rem;
+}
+
+#post_head{
+  float:center!important;
+}
+
+.profile-container{
+  max-width: 100%;
+  max-height: 100%;
+  width:900px;
+  height:900px;
+   
+}
+.btn-outline-success {
+    color: #2eca6a!important;
+    background-color: transparent;
+    background-image: none;
+    color: #2eca6a!important;
+  }
+.btn-outline-success:hover{
+  background-color: #2eca6a !important;
+  color:white !important;
+
+}
+.prof-btn{
+  margin-left: 39rem;
+  margin-top: 1rem;
+}
+
+#results h3{
+  background: #FFFFFF;
+  color: #22C4C6;
+  padding:10px;
+  margin: 10px 0;
+
+
+}
+#results span{
+  color: red;
+  font-weight: bold;
+}
+
+.res-btn{
+  border:1px solid #2eca6a;
+
+}

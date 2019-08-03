@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static from staticfiles %}
+
+
+{% block head %}
+<title>Update Your Info!</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
+
+{% block content %}
+<br><br>
+  <div class="container post-container">
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" id="update-prof" src="{{ user.profile.image.url }}">
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Profile Info</legend>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-info forum-btn" type="submit">Update</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br>
+{% endblock content %}

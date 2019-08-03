@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static from staticfiles %}
+
+{% block head %}
+
+<title>Hi {{ user.username }}</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/forum.css' %}">
+{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="container profile-container">
+   <div class="content-section">
+      <div class="media">
+         <a class="btn btn-outline-success prof-btn" href="{% url 'profile_update' %}" role="button">Update Your Profile</a>
+    </div>
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h3 class="account-heading" id="name" style="font-size:35px;">Hi {{ user.profile.first_name }} {{ user.profile.last_name }} </h3>
+          <small id="welcome">Welcome Back!</small>
+        </div>
+        <div class="prof-content">
+          <h4 class="text-secondary" id="username" style="font-size:20px;">Username: {{ user.username }}</h4>
+          <p class="text-secondary" id="email" style="font-size:20px;">Email: {{ user.email }}</p>
+        </div>
+      </div>
+      </div>
+  
+
+{% endblock %}
